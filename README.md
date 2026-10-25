@@ -1,5 +1,10 @@
 # Vigilancia con detección de personas — Uniarch Uho-S2E
 
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-ultralytics-00FFFF)
+![OpenCV](https://img.shields.io/badge/OpenCV-5.0-green?logo=opencv&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 Sistema de video-analítica para tu cámara IP: lee el stream **RTSP**, detecta
 **personas** en tiempo real con YOLOv8, registra eventos con hora, y guarda
 **snapshots** y **clips** de video cuando aparece alguien. Incluye zonas de
@@ -59,3 +64,7 @@ Todo se guarda en `eventos/`:
 - **Alertas:** notificación a Telegram o correo al detectar persona.
 - **GPU:** mover la inferencia a la RTX 5060 para tiempo real a full resolución.
 - **Arranque automático:** tarea programada de Windows al iniciar sesión.
+
+## Licencia
+
+MIT — ver [LICENSE](LICENSE).
