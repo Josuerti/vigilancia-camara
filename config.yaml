@@ -1,0 +1,48 @@
+# ---------------------------------------------------------------------------
+# Configuración de la vigilancia (ajustes NO secretos).
+# Las credenciales de la cámara van en el archivo .env
+# ---------------------------------------------------------------------------
+
+modelo:
+  # Pesos YOLO. yolov8n = nano (rápido). Opciones: yolov8n/s/m.pt
+  pesos: yolov8n.pt
+  # 'cpu' o 'cuda'. Se pone en cuda cuando instalemos la versión GPU.
+  dispositivo: cpu
+  # Confianza mínima para aceptar una detección (0-1).
+  confianza: 0.45
+  # Solo nos interesan personas por ahora (clase 0 de COCO).
+  # Puedes añadir: 0=persona, 2=carro, 15=gato, 16=perro
+  clases: [0]
+
+stream:
+  # Reducir resolución de proceso acelera la inferencia (0 = tamaño original).
+  ancho_proceso: 960
+  # Transporte RTSP: tcp es más estable que udp en redes wifi.
+  transporte: tcp
+  # Segundos a esperar antes de reintentar si se cae el stream.
+  reconectar_seg: 5
+
+eventos:
+  # Carpeta donde se guardan snapshots, clips y el registro.
+  carpeta: eventos
+  # Guardar una foto cuando se detecta una persona.
+  guardar_snapshot: true
+  # Guardar un clip de video del evento.
+  guardar_clip: true
+  # Duración del clip en segundos.
+  clip_seg: 8
+  # Tiempo mínimo entre eventos para no llenar el disco (segundos).
+  cooldown_seg: 15
+
+ui:
+  # Mostrar ventana en vivo con las cajas dibujadas (ponlo en false para
+  # correr sin pantalla / como servicio en casa).
+  mostrar_ventana: true
+  # Dibujar la zona de interés (si está definida).
+  dibujar_zona: true
+
+# Zona de interés opcional: una región poligonal. Solo cuentan las personas
+# cuyo punto base (pies) cae dentro. Déjalo vacío para vigilar todo el cuadro.
+# Coordenadas en fracción del cuadro (0-1), así funciona a cualquier resolución.
+# Ejemplo (mitad inferior):  [[0,0.5],[1,0.5],[1,1],[0,1]]
+zona: []
